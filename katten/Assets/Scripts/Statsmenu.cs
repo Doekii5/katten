@@ -1,22 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
+using TMPro;
 
-public class DropInImage : MonoBehaviour
+public class Statsmenu : MonoBehaviour
 {
     Vector2 endPos;
     Vector2 hiddenPos;
     public RectTransform imageRect;
     public Button openButton;
-    public Button openButton2;
     public float duration = 0.35f;
     public float startYOffset = 800f;
 
-    public Button resetButton;
-    public Button quitButton;
-    public Slider soundSlider;
+    public TextMeshProUGUI distance;
+    public TextMeshProUGUI time;
+    public TextMeshProUGUI count;
 
+    public int TotalDistance;
+    public int TotalTime;
+    public int TotalCount;
 
     Coroutine anim;
     bool shown;
@@ -27,26 +30,18 @@ public class DropInImage : MonoBehaviour
         hiddenPos = endPos + Vector2.up * startYOffset;
         imageRect.anchoredPosition = hiddenPos;
         openButton.onClick.AddListener(Toggle);
-        resetButton.onClick.AddListener(Resetsave);
-        quitButton.onClick.AddListener(Quit);
-        openButton2.onClick.AddListener(Toggle);
-    }
 
+        TotalDistance = 0;
+        TotalTime = 0;
+        TotalCount = 0;
+        UpdateText();
+    }
     void Toggle()
     {
         shown = !shown;
         StartAnim(shown ? endPos : hiddenPos);
     }
 
-    void Resetsave()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
-
-    void Quit()
-    {
-        Application.Quit();
-    }
     void StartAnim(Vector2 target)
     {
         if (anim != null) StopCoroutine(anim);
@@ -69,5 +64,12 @@ public class DropInImage : MonoBehaviour
         imageRect.anchoredPosition = target;
         anim = null;
     }
-}
 
+
+    void UpdateText()
+    {
+        distance.text = "Total Distance: " + TotalDistance + "km";
+        time.text = "Total Time: " + TotalTime + "min";
+        count.text = "Amount of Walks: " + TotalCount;
+    }
+}
