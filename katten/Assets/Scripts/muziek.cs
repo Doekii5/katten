@@ -30,7 +30,9 @@ public class MusicVolumeUI : MonoBehaviour
         }
 
         if (muteButton != null)
+        {
             muteButton.onClick.AddListener(Mute);
+        }
 
         SetSliderVolume(volumeSlider != null ? volumeSlider.value : 1f);
     }
