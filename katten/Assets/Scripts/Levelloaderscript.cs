@@ -22,7 +22,10 @@ public class Levelloaderscript : MonoBehaviour
     public TextMeshProUGUI daycounter;
     public Image bgmain;
     public Image bgwalk;
+    public Image Stats;
     public RawImage map;
+
+    public WalkTracker walkTracker;
 
 
     public float transitionTime = 1.0f;
@@ -40,6 +43,7 @@ public class Levelloaderscript : MonoBehaviour
     IEnumerator loadmain(int levelIndex)
     {
         transition.SetTrigger("close");
+        walkTracker.StopWalk();
 
         yield return new WaitForSeconds(transitionTime);
 
@@ -56,6 +60,7 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(true);
         bgmain.gameObject.SetActive(true);
         bgwalk.gameObject.SetActive(false);
+        Stats.gameObject.SetActive(false);
         map.gameObject.SetActive(false);
 
         transition.SetTrigger("open");
@@ -64,6 +69,7 @@ public class Levelloaderscript : MonoBehaviour
     IEnumerator loadwalk(int levelIndex)
     {
         transition.SetTrigger("close");
+        walkTracker.StartWalk();
 
         yield return new WaitForSeconds(transitionTime);
 
@@ -80,6 +86,7 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(false);
         bgmain.gameObject.SetActive(false);
         bgwalk.gameObject.SetActive(true);
+        Stats.gameObject.SetActive(true);
         map.gameObject.SetActive(true);
 
         transition.SetTrigger("open");
