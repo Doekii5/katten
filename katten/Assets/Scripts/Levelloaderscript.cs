@@ -26,6 +26,7 @@ public class Levelloaderscript : MonoBehaviour
     public Animator bg;
     public Animator catspr;
     public GameObject bone;
+    bool wait = true;
 
     public WalkTracker walkTracker;
     public FORWARDDAY forwardday;
@@ -41,13 +42,21 @@ public class Levelloaderscript : MonoBehaviour
     public float transitionTime = 1.0f;
     public void mainmenu()
     {
-        Time.timeScale = 1.0f;
-        StartCoroutine(loadmain(SceneManager.GetActiveScene().buildIndex + 1));
+
+        if (wait)
+        {
+            wait = false;
+            Time.timeScale = 1.0f;
+            StartCoroutine(loadmain(SceneManager.GetActiveScene().buildIndex + 1));
+        }
     }
     public void walkmenu()
     {
-        Time.timeScale = 1.0f;
-        StartCoroutine(loadwalk(SceneManager.GetActiveScene().buildIndex + 1));
+        if (wait) {
+            wait = false;
+            Time.timeScale = 1.0f;
+            StartCoroutine(loadwalk(SceneManager.GetActiveScene().buildIndex + 1));
+        }
     }
 
     IEnumerator loadmain(int levelIndex)
@@ -74,8 +83,10 @@ public class Levelloaderscript : MonoBehaviour
         map.gameObject.SetActive(false);
 
         StageChange(forwardday.stage);
+        Debug.Log("skibidi" + forwardday.stage);
 
         transition.SetTrigger("open");
+        wait = true;
     }
 
     IEnumerator loadwalk(int levelIndex)
@@ -101,6 +112,7 @@ public class Levelloaderscript : MonoBehaviour
 
         bg.SetTrigger("walkbg");
         transition.SetTrigger("open");
+        wait = true;
     }
 
     public void StageChange(float stage)
