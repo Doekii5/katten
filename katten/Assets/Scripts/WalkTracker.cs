@@ -16,12 +16,12 @@ public class WalkTracker : MonoBehaviour
 
     public bool IsWalking;
 
-    float totalMinutes;
-    float totalDistance;
-    float distanceKm;
-    float distanceTimer;
-    float roundedMinutes;
-    float timeSince;
+    public float totalMinutes;
+    public float totalDistance;
+    public float distanceKm;
+    public float distanceTimer;
+    public float roundedMinutes;
+    public float timeSince;
     public int amount;
 
     void Start()
