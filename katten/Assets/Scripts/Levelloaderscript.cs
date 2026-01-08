@@ -20,10 +20,9 @@ public class Levelloaderscript : MonoBehaviour
     public Button questswalk;
     public Button dayforward;
     public TextMeshProUGUI daycounter;
-    public Image bgmain;
-    public Image bgwalk;
     public Image Stats;
     public RawImage map;
+    public Animator bg;
 
     public WalkTracker walkTracker;
 
@@ -58,10 +57,10 @@ public class Levelloaderscript : MonoBehaviour
         walk.gameObject.SetActive(true);
         daycounter.gameObject.SetActive(true);
         dayforward.gameObject.SetActive(true);
-        bgmain.gameObject.SetActive(true);
-        bgwalk.gameObject.SetActive(false);
         Stats.gameObject.SetActive(false);
         map.gameObject.SetActive(false);
+
+        bg.SetTrigger("bganim"); //verander!
 
         transition.SetTrigger("open");
     }
@@ -84,11 +83,10 @@ public class Levelloaderscript : MonoBehaviour
         walk.gameObject.SetActive(false);
         daycounter.gameObject.SetActive(false);
         dayforward.gameObject.SetActive(false);
-        bgmain.gameObject.SetActive(false);
-        bgwalk.gameObject.SetActive(true);
         Stats.gameObject.SetActive(true);
         map.gameObject.SetActive(true);
 
+        bg.SetTrigger("bgwalk");
         transition.SetTrigger("open");
     }
 }
