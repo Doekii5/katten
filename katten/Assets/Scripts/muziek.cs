@@ -6,11 +6,12 @@ public class MusicVolumeUI : MonoBehaviour
 {
     public AudioClip track1;
     public AudioClip track2;
+    public AudioClip track3;
     public Slider volumeSlider;
     public Button muteButton;
     public float globalVolume = 1f;
-    AudioSource source;
-    bool using1 = true;
+    public AudioSource source;
+    //bool using1 = true;
 
     void Awake()
     {
@@ -41,17 +42,46 @@ public class MusicVolumeUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            SwitchTrack();
+            OnTheLevel();
         }
     }
 
-    void SwitchTrack()
+    //void SwitchTrack()
+    //{
+    //    using1 = !using1;
+    //    source.clip = using1 ? track1 : track2;
+    //    source.Play();
+    //    SetSliderVolume(volumeSlider != null ? volumeSlider.value : 1f);
+    //}
+
+    void OnTheLevel()
     {
-        using1 = !using1;
-        source.clip = using1 ? track1 : track2;
-        source.Play();
-        SetSliderVolume(volumeSlider != null ? volumeSlider.value : 1f);
+        if (source.clip != track2)
+        {
+            source.clip = track2;
+            source.Play();
+            SetSliderVolume(volumeSlider != null ? volumeSlider.value : 1f);
+        }
     }
+
+    public void back() {
+        if (source.clip != track1)
+        {
+            source.clip = track1;
+            source.Play();
+            SetSliderVolume(volumeSlider != null ? volumeSlider.value : 1f);
+        }
+    }
+    public void scary()
+    {
+        if (source.clip != track3)
+        {
+            source.clip = track3;
+            source.Play();
+            SetSliderVolume(volumeSlider != null ? volumeSlider.value : 1f);
+        }
+    }
+
 
     void SetSliderVolume(float v)
     {
