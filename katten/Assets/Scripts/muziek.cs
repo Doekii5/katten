@@ -7,6 +7,7 @@ public class MusicVolumeUI : MonoBehaviour
     public AudioClip track1;
     public AudioClip track2;
     public AudioClip track3;
+    public AudioSource sfxf;
     public Slider volumeSlider;
     public Button muteButton;
     public float globalVolume = 1f;
@@ -86,12 +87,19 @@ public class MusicVolumeUI : MonoBehaviour
     void SetSliderVolume(float v)
     {
         source.volume = Mathf.Clamp01(v) * globalVolume;
+        sfxf.volume = Mathf.Clamp01(v) * globalVolume;
     }
 
     void Mute()
     {
         if (volumeSlider != null) volumeSlider.value = 0f;
         source.volume = 0f;
+        sfxf.volume = 0f;
+    }
+
+    public void sfx()
+    {
+        sfxf.Play();
     }
 }
 
