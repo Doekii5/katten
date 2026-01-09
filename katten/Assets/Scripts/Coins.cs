@@ -5,6 +5,7 @@ public class Coins : MonoBehaviour
 {
     public int CoinTotal;
     public TextMeshProUGUI CoinCounter;
+    public MusicVolumeUI muziek;
 
     int lastCoinTotal;
 
@@ -20,6 +21,7 @@ public class Coins : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             CoinTotal += 100;
+            muziek.coinsfx();
         }
 
         if (CoinTotal > lastCoinTotal)

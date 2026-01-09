@@ -27,6 +27,7 @@ public class Levelloaderscript : MonoBehaviour
     public Animator bg;
     public Animator catspr;
     public GameObject bone;
+    public GameObject howmuch;
     bool wait = true;
 
     public WalkTracker walkTracker;
@@ -109,6 +110,7 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(true);
         Stats.gameObject.SetActive(false);
         map.gameObject.SetActive(false);
+        howmuch.SetActive(true);
 
         StageChange(forwardday.stage);
         Debug.Log("skibidi" + forwardday.stage);
@@ -138,6 +140,7 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(false);
         Stats.gameObject.SetActive(true);
         map.gameObject.SetActive(true);
+        howmuch.SetActive(false);
 
         bg.SetTrigger("walkbg");
         transition.SetTrigger("open");

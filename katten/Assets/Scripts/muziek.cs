@@ -13,6 +13,7 @@ public class MusicVolumeUI : MonoBehaviour
     public Button muteButton;
     public float globalVolume = 1f;
     public AudioSource source;
+    public AudioSource coin;
     //bool using1 = true;
 
     void Awake()
@@ -108,6 +109,11 @@ public class MusicVolumeUI : MonoBehaviour
     public void hooray()
     {
         hoorayyay.Play();
+    }
+
+    public void coinsfx()
+    {
+        coin.Play();
     }
 }
 
