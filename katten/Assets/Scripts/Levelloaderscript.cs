@@ -23,11 +23,17 @@ public class Levelloaderscript : MonoBehaviour
     public Image[] buttons;
     public TextMeshProUGUI daycounter;
     public Image Stats;
+    public Image MARIO;
+    public Image WIZARD;
+    public Image inventorywindow;
+    public Image shopwindow;
     public RawImage map;
     public Animator bg;
     public Animator catspr;
     public GameObject bone;
     bool wait = true;
+
+    public Inventory inventoryscript; 
 
     public WalkTracker walkTracker;
     public FORWARDDAY forwardday;
@@ -109,6 +115,20 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(true);
         Stats.gameObject.SetActive(false);
         map.gameObject.SetActive(false);
+        inventorywindow.gameObject.SetActive(true);
+        shopwindow.gameObject.SetActive(true);
+
+        if (inventoryscript.marioactive == true)
+        {
+            WIZARD.gameObject.SetActive(false);
+            MARIO.gameObject.SetActive(true);
+        }
+
+        if (inventoryscript.wizardactive == true)
+        {
+            WIZARD.gameObject.SetActive(true);
+            MARIO.gameObject.SetActive(false);
+        }
 
         StageChange(forwardday.stage);
         Debug.Log("skibidi" + forwardday.stage);
@@ -138,6 +158,10 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(false);
         Stats.gameObject.SetActive(true);
         map.gameObject.SetActive(true);
+        WIZARD.gameObject.SetActive(false);
+        MARIO.gameObject.SetActive(false);
+        inventorywindow.gameObject.SetActive(false);
+        shopwindow.gameObject.SetActive(false);
 
         bg.SetTrigger("walkbg");
         transition.SetTrigger("open");

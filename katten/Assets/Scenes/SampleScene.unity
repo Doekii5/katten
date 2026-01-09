@@ -6820,12 +6820,12 @@ RectTransform:
   - {fileID: 1757699970}
   - {fileID: 1387890276}
   - {fileID: 1562866480}
+  - {fileID: 331013185}
+  - {fileID: 868795229}
   - {fileID: 1807836644}
   - {fileID: 838798062}
   - {fileID: 705468350}
   - {fileID: 397920662}
-  - {fileID: 331013185}
-  - {fileID: 868795229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8383,10 +8383,15 @@ MonoBehaviour:
   - {fileID: 1544426975}
   daycounter: {fileID: 1793195966}
   Stats: {fileID: 2096926036}
+  MARIO: {fileID: 331013186}
+  WIZARD: {fileID: 868795230}
+  inventorywindow: {fileID: 1562866482}
+  shopwindow: {fileID: 1387890278}
   map: {fileID: 1725846129}
   bg: {fileID: 735588397}
   catspr: {fileID: 232363744}
   bone: {fileID: 859093612}
+  inventoryscript: {fileID: 1562866481}
   walkTracker: {fileID: 2096926038}
   forwardday: {fileID: 1266403766}
   muziek: {fileID: 1382776401}
@@ -13230,12 +13235,22 @@ MonoBehaviour:
   imageRect: {fileID: 1562866480}
   openButton: {fileID: 572971226}
   shop: {fileID: 1387890277}
+  level: {fileID: 705468351}
   duration: 0.8
   startXOffset: 400
+  wolused: 0
+  marioactive: 0
+  wizardactive: 0
   none: {fileID: 1898587747}
   wol: {fileID: 558098778}
   mario: {fileID: 1277000684}
   wizard: {fileID: 947475534}
+  BOLWOL: {fileID: 0}
+  MARIO: {fileID: 331013186}
+  WIZARD: {fileID: 868795230}
+  marioColor: {r: 0, g: 0, b: 0, a: 0}
+  wizardColor: {r: 0, g: 0, b: 0, a: 0}
+  equipColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1562866482
 MonoBehaviour:
   m_ObjectHideFlags: 0
