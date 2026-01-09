@@ -37,6 +37,11 @@ public class Levelloaderscript : MonoBehaviour
     public float timesWalked;
     public Animator wol;
     public GameObject hartje;
+    public Image wizard;
+    public Image mario;
+    public Inventory inventoryscript;
+    public Image inventorypanel;
+    public Image shoppanel;
 
     Color color1 = new Color32(36, 197, 29, 255);
     Color color2 = new Color32(155, 226, 20, 255);
@@ -110,7 +115,19 @@ public class Levelloaderscript : MonoBehaviour
         dayforward.gameObject.SetActive(true);
         Stats.gameObject.SetActive(false);
         map.gameObject.SetActive(false);
+        inventorypanel.gameObject.SetActive(true);
+        shoppanel.gameObject.SetActive(true);
         howmuch.SetActive(true);
+        if (inventoryscript.marioactive)
+        {
+            mario.gameObject.SetActive(true);
+            wizard.gameObject.SetActive(false);
+        }
+        if (inventoryscript.wizardactive)
+        {
+            mario.gameObject.SetActive(false);
+            wizard.gameObject.SetActive(true);
+        }
 
         StageChange(forwardday.stage);
         Debug.Log("skibidi" + forwardday.stage);
@@ -141,7 +158,10 @@ public class Levelloaderscript : MonoBehaviour
         Stats.gameObject.SetActive(true);
         map.gameObject.SetActive(true);
         howmuch.SetActive(false);
-
+        mario.gameObject.SetActive(false);
+        wizard.gameObject.SetActive(false);
+        inventorypanel.gameObject.SetActive(false);
+        shoppanel.gameObject.SetActive(false);
         bg.SetTrigger("walkbg");
         transition.SetTrigger("open");
         wait = true;

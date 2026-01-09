@@ -8,6 +8,8 @@ public class progressBar : MonoBehaviour
     public Animator bar;
     public GameObject wool;
     public GameObject heart;
+    public Shop shop;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,10 @@ public class progressBar : MonoBehaviour
         {
             bar.SetTrigger("progress4");
             wool.SetActive(false);
+            shop.wolbought = true;
+            shop.wol.image.color = Color.gray;
+            //inventory.backwool.color = inventory.backwoolcolor;
+            shop.wol.interactable = false;
         }
     }
 }
