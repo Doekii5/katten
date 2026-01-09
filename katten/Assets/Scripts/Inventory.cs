@@ -11,15 +11,22 @@ public class Inventory : MonoBehaviour
     public RectTransform imageRect;
     public Button openButton;
 
+    public Shop shop;
+
     public float duration = 0.35f;
     public float startXOffset = 400f;
     Coroutine anim;
     bool shown;
 
-    // Update is called once per frame
+    public Button none;
+    public Button wol;
+    public Button mario;
+    public Button wizard;
+
+    
     void Update()
     {
-
+       
     }
 
     void Awake()
@@ -30,6 +37,12 @@ public class Inventory : MonoBehaviour
         imageRect.anchoredPosition = hiddenPos;
 
         openButton.onClick.AddListener(Toggle);
+
+        none.onClick.AddListener(Nohat);
+        wol.onClick.AddListener(bolwol);
+        mario.onClick.AddListener(mariohat);
+        wizard.onClick.AddListener(wizardhat);
+
     }
 
     void Toggle()
@@ -60,5 +73,25 @@ public class Inventory : MonoBehaviour
 
         imageRect.anchoredPosition = target;
         anim = null;
+    }
+
+    public void Nohat()
+    {
+
+    }
+
+    public void bolwol()
+    {
+
+    }
+
+    public void mariohat()
+    {
+
+    }
+
+    public void wizardhat()
+    {
+
     }
 } 
