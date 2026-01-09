@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Data;
+using UnityEngine.UIElements;
 
 public class FORWARDDAY : MonoBehaviour
 {
-    public Button PijltjeForward;
+    public UnityEngine.UI.Button PijltjeForward;
     public TextMeshProUGUI Counter;
     public int DayCount;
     public Levelloaderscript levelloaderscript;
     public float stage = 1;
     public float consecutivewalks;
+    public progressBar progressbar;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +28,7 @@ public class FORWARDDAY : MonoBehaviour
     {
         DayCount += 1;
         UpdateDayText();
+        progressbar.walkChange(0);
         if (stage != 5) {
             if (levelloaderscript.timesWalked > 1)
             {

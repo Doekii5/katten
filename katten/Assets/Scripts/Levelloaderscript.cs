@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,7 +32,10 @@ public class Levelloaderscript : MonoBehaviour
     public WalkTracker walkTracker;
     public FORWARDDAY forwardday;
     public MusicVolumeUI muziek;
+    public progressBar progressbar;
     public float timesWalked;
+    public Animator wol;
+    public GameObject hartje;
 
     Color color1 = new Color32(36, 197, 29, 255);
     Color color2 = new Color32(155, 226, 20, 255);
@@ -40,6 +44,29 @@ public class Levelloaderscript : MonoBehaviour
     Color color5 = new Color32(179, 58, 41, 255);
 
     public float transitionTime = 1.0f;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            woltr();
+        }
+    }
+
+    public void woltr()
+    {
+        StartCoroutine(wolIE());
+    }
+
+    IEnumerator wolIE()
+    {
+        wol.SetTrigger("wolanim");
+        yield return new WaitForSeconds(2.333f);
+        hartje.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        hartje.SetActive(false);
+    }
+
     public void mainmenu()
     {
 
@@ -65,6 +92,7 @@ public class Levelloaderscript : MonoBehaviour
         walkTracker.StopWalk();
 
         ++timesWalked;
+        progressbar.walkChange(timesWalked);
 
         yield return new WaitForSeconds(transitionTime);
 
@@ -86,6 +114,7 @@ public class Levelloaderscript : MonoBehaviour
         Debug.Log("skibidi" + forwardday.stage);
 
         transition.SetTrigger("open");
+        muziek.hooray();
         wait = true;
     }
 
