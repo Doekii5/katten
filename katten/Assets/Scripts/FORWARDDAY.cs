@@ -15,6 +15,7 @@ public class FORWARDDAY : MonoBehaviour
     public float stage = 1;
     public float consecutivewalks;
     public progressBar progressbar;
+    public TextMeshProUGUI howmuch;
     // Start is called before the first frame update
     void Awake()
     {
@@ -47,14 +48,17 @@ public class FORWARDDAY : MonoBehaviour
             if (levelloaderscript.timesWalked > 1)
             {
                 ++consecutivewalks;
+                howmuch.text = consecutivewalks + "/5";
             } else
             {
                 consecutivewalks = 0;
+                howmuch.text = consecutivewalks + "/5";
             }
             if (consecutivewalks == 5)
             {
                 stage = 1;
                 consecutivewalks = 0;
+                howmuch.text = null;
             }
         }
         levelloaderscript.timesWalked = 0;

@@ -212,6 +212,7 @@ public class Levelloaderscript : MonoBehaviour
         {
             catspr.SetTrigger("cat5");
             bone.SetActive(true);
+            bg.SetTrigger("bg4");
             muziek.scary();
             foreach (Image btn in buttons)
             {
