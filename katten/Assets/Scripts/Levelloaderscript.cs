@@ -51,6 +51,11 @@ public class Levelloaderscript : MonoBehaviour
 
     public float transitionTime = 1.0f;
 
+    public void Start()
+    {
+        Screen.SetResolution(450, 800, false);
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))

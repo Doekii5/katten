@@ -6826,9 +6826,9 @@ RectTransform:
   - {fileID: 838798062}
   - {fileID: 331013185}
   - {fileID: 868795229}
+  - {fileID: 764398279}
   - {fileID: 705468350}
   - {fileID: 397920662}
-  - {fileID: 764398279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8383,7 +8383,6 @@ MonoBehaviour:
   - {fileID: 1083572919}
   - {fileID: 908266945}
   - {fileID: 663131954}
-  - {fileID: 1757699972}
   - {fileID: 1544426975}
   daycounter: {fileID: 1793195966}
   Stats: {fileID: 2096926036}
